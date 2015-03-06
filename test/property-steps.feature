@@ -113,3 +113,8 @@ Feature: setting and checking properties
             When [TEST] I set bar to 43
             And [TEST] I set foo to 42
             Then I check property foo does not equals property bar
+
+    Scenario: Checking if a property doesn't exist
+            Given [TEST] I set foo to 42
+            When I remove property foo
+            Then I check property foo does not exist
