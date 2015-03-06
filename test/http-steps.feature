@@ -6,7 +6,7 @@ Feature: making http requests
         Then the response status code is 200
         And I check property foo of response body equals string bar
 
-    Scenario: I want to make a to a host and port defined in the testConfig
+    Scenario: I want to make a request of which host and port are defined in the testConfig
         Given host name and port are configured
         Given I set property foo of request body to string bar
         When I send a POST request to /foo
@@ -19,7 +19,7 @@ Feature: making http requests
         Then the response status code is 200
         And I check property foo of response body equals string bar
 
-    Scenario: I want to make which contains parameters
+    Scenario: I want to make a request which contains parameters
         Given I set property foo of bar to string localhost
         Given I set property foo of request body to string bar
         When I send a POST request to http://{bar.foo}:8080/foo
