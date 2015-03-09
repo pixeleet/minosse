@@ -1,6 +1,8 @@
 <a href="https://github.com/icemobilelab/minosse"><img src="https://raw.githubusercontent.com/icemobilelab/minosse/master/images/minosse.png" align="center"  height="300" width="600"/></a>
 
 # Minosse
+[![NPM version](https://badge.fury.io/js/minosse.svg)](http://badge.fury.io/js/minosse)
+
 Common steps for testing api's using [Cucumber.js](https://github.com/cucumber/cucumber-js).
 
 ## Usage
