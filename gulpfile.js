@@ -59,7 +59,7 @@ gulp.task('report-istanbul', false, function() {
         .pipe(istanbul.writeReports({
             coverageVariable: 'ISTANBUL_COVERAGE',
             dir: './coverage',
-            reporters: ['cobertura', 'text', 'html']
+            reporters: ['lcov', 'text']
         }));
 });
 
