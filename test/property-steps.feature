@@ -21,6 +21,7 @@ Feature: setting and checking properties
             | foo.chain    | string        | word          | 'word'                     |
             | foo.array[1] | string        | word          | 'word'                     |
 
+    @only
     Scenario: Setting a property of a subproperty
         When I set property foo of bar to number 42
         Then [TEST] I assert property bar.foo equals 42
