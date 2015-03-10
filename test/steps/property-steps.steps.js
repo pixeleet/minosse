@@ -2,6 +2,7 @@ var path = require('path');
 var assert = require('assert');
 var format = require('util').format;
 var moment = require('moment');
+
 module.exports = function propertyStepsSteps() {
     this.Given('[TEST] testDataRoot path is configured', function(done) {
         this.testConfig = this.testConfig || {};
