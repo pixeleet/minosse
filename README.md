@@ -16,12 +16,9 @@ Create a steps file in your project and load the api teststeps from there and ad
 ```js
 module.exports = function myCustomSteps() {
     require('minosse').call(this);
-    this.Before(function loadTestConfig(done) {
-        this.testConfig = {
-            defaultHost: 'localhost',
-            defaultPort: 8080
-        };
-        done();
+    this.setTestConfig({
+        defaultHost: 'localhost',
+        defaultPort: 8080
     });
 }
 ```
