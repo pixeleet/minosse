@@ -118,3 +118,7 @@ Feature: setting and checking properties
         Given [TEST] I set foo to 42
         When I remove property foo
         Then I check property foo does not exist
+
+    Scenario: Checking the format of a property
+        When [TEST] I set foo to 42
+        When I check property foo has format even
