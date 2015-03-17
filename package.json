@@ -1,6 +1,6 @@
 {
   "name": "minosse",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Common test steps for testing api's.",
   "main": "lib/steps.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "bunyan": "^1.2.1",
     "moment": "^2.8.3",
     "node-uuid": "^1.4.1",
-    "request": "^2.44.0"
+    "request": "^2.44.0",
+    "validator": "^3.34.0"
   }
 }

@@ -117,3 +117,51 @@ Feature: setting and checking properties
         Given [TEST] I set foo to 42
         When I remove property foo
         Then I check property foo does not exist
+
+    Scenario Outline: Checking a property has a certain format
+        When [TEST] I set foo to <property>
+        When I check property foo has format <format>
+
+        Examples:
+            | property                               | format       |
+            | 'test@foo.com'                         | email        |
+            | 'test.com/foo'                         | url          |
+            | 'test.com'                             | fqdn         |
+            | '10.0.0.127'                           | ip           |
+            | 'abcd'                                 | alpha        |
+            | '1234'                                 | numeric      |
+            | 'ab12'                                 | alphanumeric |
+            | 'Zm9v'                                 | base64       |
+            | '12ef'                                 | hexadecimal  |
+            | '#1122FF'                              | hexcolor     |
+            | 'abcd'                                 | lowercase    |
+            | 'ABCD'                                 | uppercase    |
+            | '42'                                   | int          |
+            | '3.14'                                 | float        |
+            | 'd8d683dc-194a-4203-b355-72970b161953' | uuid         |
+            | '{ "foo": "bar" }'                     | json         |
+            | '%foo;'                                | ascii        |
+
+    Scenario Outline: Checking a property does not have a certain format
+        When [TEST] I set foo to <property>
+        When I check property foo does not have format <format>
+
+        Examples:
+            | property                          | format       |
+            | '@@not-an-email#'                 | email        |
+            | '/foo'                            | url          |
+            | 'test.com/foo'                    | fqdn         |
+            | '10.0.0'                          | ip           |
+            | 'abc5'                            | alpha        |
+            | '123A'                            | numeric      |
+            | 'ab1%'                            | alphanumeric |
+            | 'oijaov'                          | base64       |
+            | '12ep'                            | hexadecimal  |
+            | '#11FF'                           | hexcolor     |
+            | 'abCd'                            | lowercase    |
+            | 'ABcD'                            | uppercase    |
+            | '42.1'                            | int          |
+            | 'abcd'                            | float        |
+            | 'd8d683dc-4203-b355-72970b161953' | uuid         |
+            | '"foo": "bar" }'                  | json         |
+            | '§foo;'                           | ascii        |
