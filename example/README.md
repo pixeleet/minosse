@@ -14,6 +14,6 @@ In order to do that we have created a simple API with [ExpressJS](http://express
     * Body: `{message: 'hello {{name}}'}`, *name* is retrieved from the request body
 
 ### How top use this example
-Cd into this folder and run `npm install` to install the packages needed. Then ruin the server with
+Cd into this folder and run `npm install` to install the packages needed. Then run the server with
 `node server.js`. Once the server is up and running run the tests with
-`./node_modules/cucumber/bin/cucumber.js test/*.feature -r istanbul-instrumented-lib.tmp/steps.js -r test/steps/ -f pretty`
+`npm test`
