@@ -15,5 +15,5 @@ In order to do that we have created a simple API with [ExpressJS](http://express
 
 ### How top use this example
 Cd into this folder and run `npm install` to install the packages needed. Then run the server with
-`node server.js`. Once the server is up and running run the tests with
+`npm start` and once the server is up and running run the tests in another shell with
 `npm test`
