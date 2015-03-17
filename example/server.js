@@ -1,7 +1,10 @@
 var express = require('express');
 var app = express();
 
+var bodyParser = require('body-parser');
 var util = require('util');
+
+app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
     res.send(200, {
@@ -17,9 +20,16 @@ app.get('/hello/:name', function (req, res) {
 });
 
 app.post('/hello', function (req, res) {
-    var greeting = util.format('hello %s', req.body.name);
+    var name = util.format(req.body.name);
     res.send(200, {
-        message: greeting
+        name: name
+    });
+});
+
+app.post('/hello/lastName', function (req, res) {
+    var name = util.format(req.body.lastName);
+    res.send(200, {
+        lastName: name
     });
 });
 
