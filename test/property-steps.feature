@@ -75,7 +75,6 @@ Feature: setting and checking properties
         Then I check property foo equals property bar
 
     Scenario: Loading testdata from file
-        Given [TEST] testDataRoot path is configured
         When I set property foo to testdata foo
         Then [TEST] I assert property foo.nr equals 42
 

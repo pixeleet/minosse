@@ -4,10 +4,8 @@ var format = require('util').format;
 var moment = require('moment');
 
 module.exports = function propertyStepsSteps() {
-    this.Given('[TEST] testDataRoot path is configured', function(done) {
-        this.testConfig = this.testConfig || {};
-        this.testConfig.testDataRoot = path.join(__dirname, '../data');
-        done();
+    this.setTestConfig({
+        testDataRoot: path.join(__dirname, '../data')
     });
 
     /* eslint-disable no-eval */
