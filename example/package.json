@@ -1,0 +1,29 @@
+{
+  "name": "minosse-example-project",
+  "version": "1.0.0",
+  "description": "Example project for explaining people what Minosse is and what it can do for your API",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "./node_modules/cucumber/bin/cucumber.js test/features/*.feature -r test/steps/ -f pretty",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/icemobilelab/minosse"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icemobilelab/minosse/issues"
+  },
+  "homepage": "https://github.com/icemobilelab/minosse",
+  "dependencies": {
+    "body-parser": "^1.12.2",
+    "cucumber": "^0.4.8",
+    "express": "^4.12.2",
+    "minosse": "^1.1.0"
+  }
+}
