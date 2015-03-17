@@ -22,3 +22,7 @@ app.post('/hello', function (req, res) {
         message: greeting
     });
 });
+
+var server = app.listen(3000, function () {
+    console.log('Example app listening at http://127.0.0.1:3000');
+});
