@@ -119,7 +119,7 @@ Feature: setting and checking properties
         Then I check property foo does not exist
 
     Scenario Outline: Checking a property has a certain format
-        When [TEST] I set foo to <property>
+        Given [TEST] I set foo to <property>
         When I check property foo has format <format>
 
         Examples:
@@ -143,7 +143,7 @@ Feature: setting and checking properties
             | '%foo;'                                | ascii        |
 
     Scenario Outline: Checking a property does not have a certain format
-        When [TEST] I set foo to <property>
+        Given [TEST] I set foo to <property>
         When I check property foo does not have format <format>
 
         Examples:
@@ -165,3 +165,7 @@ Feature: setting and checking properties
             | 'd8d683dc-4203-b355-72970b161953' | uuid         |
             | '"foo": "bar" }'                  | json         |
             | '§foo;'                           | ascii        |
+
+    Scenario: Using a custom formatter
+        Given [TEST] I set foo to 12
+        When I check property foo has format even

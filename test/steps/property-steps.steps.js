@@ -8,6 +8,10 @@ module.exports = function propertyStepsSteps() {
         testDataRoot: path.join(__dirname, '../data')
     });
 
+    this.addFormatValidators({
+        even: function isEven(number) { return !(number % 2); }
+    });
+
     /* eslint-disable no-eval */
     this.Given(/^\[TEST\] I assert property (.+) equals (.+)$/, function(key, value, done) {
         var actual = eval('this.' + key);
@@ -30,8 +34,7 @@ module.exports = function propertyStepsSteps() {
         done();
     });
 
-    this.Given(/^\[TEST\] value of (.+) is date (\S+) days? from now$/,
-               function(key, days, done) {
+    this.Given(/^\[TEST\] value of (.+) is date (\S+) days? from now$/, function(key, days, done) {
         var actualValue = eval('this.' + key);
         var expectedValue = moment().add(parseInt(days, 10), 'days');
         var diff = moment(actualValue).diff(expectedValue, 'seconds');
