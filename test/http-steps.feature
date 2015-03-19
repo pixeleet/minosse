@@ -7,7 +7,6 @@ Feature: making http requests
         And I check property foo of response body equals string bar
 
     Scenario: I want to make a request of which host and port are defined in the testConfig
-        Given host name and port are configured
         Given I set property foo of request body to string bar
         When I send a POST request to /foo
         Then the response status code is 200
@@ -44,3 +43,9 @@ Feature: making http requests
         When I send a POST request to /foo
         Then the response status code is 200
         And I check property test-foo of response headers equals string bar
+
+    Scenario: I want to make a polling request
+        Given I set property foo of request body to string bar
+        And I set property request-type of request headers to string delay
+        When I poll with a POST request to /foo until property res.statusCode equals number 200
+        Then I check property foo of response body equals string bar
