@@ -34,6 +34,11 @@ Feature: setting and checking properties
             | foo      | null      |
             | foo      | undefined |
 
+    Scenario: Setting a property to a template string
+        When I set property end to string bar
+        When I set property total to templateString foo{end}
+        Then [TEST] I assert property total equals 'foobar'
+
     Scenario Outline: Checking a property
         When [TEST] I set <property> to <actual value>
         Then I check property <property> equals <expected type> <expected value>
@@ -63,6 +68,11 @@ Feature: setting and checking properties
             | property | value     |
             | foo      | null      |
             | foo      | undefined |
+
+    Scenario: Checking a property using a template string
+        Given [TEST] I set total to 'foobar'
+        And [TEST] I set end to 'bar'
+        Then I check property total equals templateString foo{end}
 
     Scenario: Setting a property to the value of another property
         Given [TEST] I set bar to 42
