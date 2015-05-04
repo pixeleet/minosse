@@ -69,8 +69,9 @@ module.exports = function startParrotServer() {
     }
 
     this.registerHandler('AfterFeatures', function AfterFeatures(e, done) {
-        if (server._handle) { server.close(done); }
-        if (secureServer._handle) { secureServer.close(done); }
+        if (server._handle) { server.close(); }
+        if (secureServer._handle) { secureServer.close(); }
+        done();
     });
 
     this.Given('host name and port are configured', function(done) {
