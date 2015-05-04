@@ -77,9 +77,7 @@ module.exports = function startParrotServer() {
         var Promise = bluebird.Promise;
         var closeServerPromise = Promise.fromNode(handleServerClosePromise.bind(server));
         var closeSecureServerPromise = Promise.fromNode(handleServerClosePromise.bind(secureServer));
-        return Promise.all([closeServerPromise, closeSecureServerPromise])
-           .nodeify(done)
-           .catch(done);
+        return Promise.all([closeServerPromise, closeSecureServerPromise]).nodeify(done);
     });
 
 
