@@ -2,6 +2,7 @@ var http = require('http');
 var https = require('https');
 var fs = require('fs');
 var path = require('path');
+var bluebird = require('bluebird');
 
 var HTTP_PORT = 8080;
 var HTTPS_PORT = 8081;
@@ -68,11 +69,20 @@ module.exports = function startParrotServer() {
             });
     }
 
+    function handleServerClosePromise(callback) {
+        return this.close(callback);
+    }
+
     this.registerHandler('AfterFeatures', function AfterFeatures(e, done) {
-        if (server._handle) { server.close(); }
-        if (secureServer._handle) { secureServer.close(); }
-        done();
+        var Promise = bluebird.Promise;
+        var closeServerPromise = Promise.fromNode(handleServerClosePromise.bind(server));
+        var closeSecureServerPromise = Promise.fromNode(handleServerClosePromise.bind(secureServer));
+        return Promise.all([closeServerPromise, closeSecureServerPromise])
+           .nodeify(done)
+           .catch(done);
     });
+
+
 
     this.Given('host name and port are configured', function(done) {
         this.testConfig = this.testConfig || {};
