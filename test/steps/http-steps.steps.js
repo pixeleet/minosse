@@ -18,6 +18,7 @@ module.exports = function startParrotServer() {
 
         server = http.createServer(requestHandler).listen(HTTP_PORT);
 
+        process.env.NODE_TLS_REJECT_UNAUTHORIZED = process.env.NODE_TLS_REJECT_UNAUTHORIZED || 0;
         secureServer = https.createServer(options, requestHandler).listen(HTTPS_PORT);
 
         function requestHandler(req, res) {
