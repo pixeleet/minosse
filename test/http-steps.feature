@@ -58,3 +58,10 @@ Feature: making http requests
         And I set property req.agentOptions.key to property key
         When I send a GET request to https://localhost:8081/foo
         Then the response status code is 200
+
+    @form-data
+    Scenario: I want to make a request with from-data
+        Given I set body type to form-data
+        Given I add file ice.jpg to request body
+        When I send a POST request to /api/form-data
+        Then the response status code is 200
