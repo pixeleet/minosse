@@ -62,6 +62,6 @@ Feature: making http requests
     @form-data
     Scenario: I want to make a request with from-data
         Given I set body type to form-data
-        Given I add file ice.jpg to request body
+        Given I set property formData of request to file ice.jpg
         When I send a POST request to /api/form-data
         Then the response status code is 200
