@@ -61,7 +61,7 @@ Feature: making http requests
 
     @form-data
     Scenario: I want to make a request with from-data
-        Given I set content type to multipart/formdata
+        Given I set the request header Content-Type with value multipart/formdata
         Given I set property image to file ice.jpg
         Given I set property file of request body to property image
         When I send a POST request to /api/form-data
