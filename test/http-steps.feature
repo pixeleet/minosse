@@ -52,7 +52,7 @@ Feature: making http requests
 
     @https
     Scenario: I want to make a HTTPS Request
-        Given I secure the connection with certificate customer-client.crt and with key customer-client.key
+        Given I secure the connection with certificate file customer-client.crt and with key file customer-client.key
         When I send a GET request to https://localhost:8081/foo
         Then the response status code is 200
 
